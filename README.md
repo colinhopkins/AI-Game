@@ -8,40 +8,13 @@ In this project, I programmed the AI of the enemy characters in a 2D top-down ga
 
 ### Functionality
 
-A method named "locatePlayer" with:
-Parameters of type String and LinkedListNode of PlayerLocation
-The String represents the player id of the player to locate
-The LinkedListNode is the head of a list containing references to PlayerLocation objects
-Returns the PlayerLocation of the player with the input id
-A method named "closestPlayer" with:
-One parameter of type LinkedListNode of PlayerLocation
-Returns the PlayerLocation of the closest player to this AI player
-Do not return this player itself (eg. the distance would be 0 and it would always be returned)
-You have access to the id of the this player (The constructor parameter) which can be used to find the location of this player
-Distance should be calculated as Euclidean distance aka L2 (Square root of the sum of the squares of the differences in x and y)
-You can assume that the list contains this player and has length at least 2 (There is at least one other player in the list) so there will always be a valid answer to return
-A method named "computePath" with:
-Two parameters of type GridLocation representing the start then end of the path to compute
-Returns a path from the start to end locations as a LinkedListNode of GridLocations
-Each GridLocation on the path must be connected to each adjacent GridLocation
-Valid path connections only travel up, down, left, and right. Diagonal moves are not allowed
-The returned path must contain the minimal number of GridLocations possible
-For testing, keep in mind that there are many valid paths that can be returned. As long as the path is valid and has the minimal possible length, it should pass your tests
-
+The "locatePlayer" method takes in a String representing the player ID and a LinkedListNode of PlayerLocation objects, and returns the PlayerLocation object for the player with the given ID. The "closestPlayer" method takes in a LinkedListNode of PlayerLocation objects and returns the PlayerLocation object for the player closest to the current AI player. The distance between players is calculated using Euclidean distance, and the current AI player is not returned. The LinkedListNode is used to store references to PlayerLocation objects in a linked list. Finally, the "computePath" method takes in two GridLocation objects representing the start and end points of a path, and returns the minimal path between the two points as a LinkedListNode of GridLocations. The path is computed by connecting adjacent GridLocations in valid directions (up, down, left, and right), and diagonal moves are not allowed. The LinkedListNode is again used to store references to GridLocation objects in a linked list.
 
 ## Trees
 
 ### Functionality
 
-A method named "makeDecision" with:
-Parameters of type AIGameState and BinaryTreeNode of DecisionTreeValue
-The BinaryTreeNode is the root of a decision tree that will be used to determine which action the AI will take for this game state
-Returns the action determined by the decision tree
-To determine the action, first call the check method on the DecisionTreeValue
-If a negative number is returned, navigate to the left child of the node
-If a positive number is returned, navigate to the right child of the node
-If 0 is returned, call the action method to determine which action to take and return this action
-Once I completed this task, I could run my server again and see that the AI improved behavior. They moved towards the closest player and fired a projectile when they were close to another player. The next goal was to program the AI to avoid walls.
+The "makeDecision" method takes in an AIGameState and a BinaryTreeNode of DecisionTreeValue as parameters. It returns the action determined by the decision tree rooted at the given BinaryTreeNode. The decision tree is used to determine which action the AI will take for the given game state. The check method is called on the DecisionTreeValue to determine which direction to navigate the tree. If a negative number is returned, the left child of the node is navigated to. If a positive number is returned, the right child of the node is navigated to. If 0 is returned, the action method is called to determine which action to take and return this action. This function improves the behavior of the AI, making it move towards the closest player and fire a projectile when close to another player. The next task is to program the AI to avoid walls.
 
 ## Graphs and BFS
 
